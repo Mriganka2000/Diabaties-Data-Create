@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from .forms import UserDataForm
 
-# Create your views here.
+
+def userdata(request):
+    form = UserDataForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+    context = {
+        'form': form
+    }
+    return render(request, 'userdata/form.html', context)
