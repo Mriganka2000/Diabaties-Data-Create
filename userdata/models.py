@@ -21,3 +21,13 @@ class UserData(models.Model):
     healing = models.CharField(max_length=100, choices=HEALING_CHOICES)
     hungrylevel = models.CharField(max_length=100, choices=LEVEL_CHOICES)
     skin = models.BooleanField()
+    height = models.FloatField(default=0)
+    weight = models.FloatField(default=0)
+    age = models.IntegerField(default=0)
+    noofpregnency = models.IntegerField(default=0, blank=True, null=True)
+
+
+class OriginalData(models.Model):
+    pregnency = models.IntegerField(default=0, blank=True, null=True)
+    bmi = models.FloatField(default=0)
+
